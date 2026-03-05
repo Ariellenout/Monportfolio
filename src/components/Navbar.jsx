@@ -73,7 +73,7 @@ export default function Navbar() {
           {/* Logo */}
           <a href="#hero" className="flex items-center gap-2 group z-50">
             <span className="font-serif italic text-xl sm:text-2xl tracking-tighter text-white group-hover:text-accent-copper transition-colors duration-500">
-              Rosine
+              Arielle NOUTAIS
               <span className="font-sans font-light not-italic text-accent-copper/80 text-sm ml-1">.</span>
             </span>
           </a>

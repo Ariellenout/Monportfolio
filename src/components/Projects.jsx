@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 
-const projects = [
+// Duplicating the projects array to create an 8-item array
+// This allows the 3D rotating circle to appear full and match the layout naturally
+const baseProjects = [
   {
     name: 'QrPaye',
     type: 'FinTech App',
@@ -9,16 +11,23 @@ const projects = [
     tags: ['Flutter', 'Mobile', 'UI/UX'],
     number: '01',
     color: '#C5A880', // Champagne Gold
-    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80'
+    image: '/assets/qrpaye_real.png',
+    links: [
+      { type: 'android', url: 'https://play.google.com/store/apps/details?id=dev.sicoges.qr_manager&pcampaignid=web_share' },
+      { type: 'ios', url: 'https://apps.apple.com/bj/app/qr-paye/id6443739921?l=fr-FR' }
+    ]
   },
   {
-    name: 'Kymia',
-    type: 'Management App',
-    description: 'Interface épurée pour un suivi de gestion sans effort.',
-    tags: ['React Native', 'Design System'],
+    name: 'SecureVPN',
+    type: 'Web App',
+    description: 'Activateur et comparateur d\'offres VPN pour un choix optimal.',
+    tags: ['Web', 'VPN', 'UI'],
     number: '02',
     color: '#4A5D4E', // Emerald/Sage
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80'
+    image: '/assets/securevpn_real.png',
+    links: [
+      { type: 'web', url: 'https://prudence-vpn.vercel.app' }
+    ]
   },
   {
     name: 'S2M Mobile',
@@ -27,7 +36,10 @@ const projects = [
     tags: ['Flutter', 'Clean Arch'],
     number: '03',
     color: '#F5F5F7', // Pearl White
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80'
+    image: '/assets/s2m_real.png',
+    links: [
+      { type: 'ios', url: 'https://apps.apple.com/bj/app/s2m/id6745101167?l=fr-FR' }
+    ]
   },
   {
     name: 'Upafrica',
@@ -36,45 +48,13 @@ const projects = [
     tags: ['UI/UX', 'Mobile'],
     number: '04',
     color: '#8A7356', // Darker Gold
-    image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=80'
-  },
-  {
-    name: 'Studio',
-    type: 'Editorial Layout',
-    description: 'Conception d\'un magazine digital haut de gamme.',
-    tags: ['Next.js', 'Framer'],
-    number: '05',
-    color: '#A8B0A5', // Soft Sage
-    image: 'https://images.unsplash.com/photo-1481481600674-f0cb50304c40?auto=format&fit=crop&w=800&q=80'
-  },
-  {
-    name: 'Olympe',
-    type: 'E-commerce',
-    description: 'Expérience d\'achat minimaliste pour marque de luxe.',
-    tags: ['React', 'WebGL'],
-    number: '06',
-    color: '#444444', // Dark Grey
-    image: 'https://images.unsplash.com/photo-1502982899975-8b738c0015cc?auto=format&fit=crop&w=800&q=80'
-  },
-  {
-    name: 'Artemis',
-    type: 'Creative Agency',
-    description: 'Direction artistique et identité visuelle immersive.',
-    tags: ['Vue', 'GSAP'],
-    number: '07',
-    color: '#6A5ACD', // Soft Purple
-    image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80'
-  },
-  {
-    name: 'Vortex',
-    type: 'Data Dashboard',
-    description: 'Outil d\'analyse et visualisation de données complexes.',
-    tags: ['React', 'D3.js'],
-    number: '08',
-    color: '#FF7F50', // Coral
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80'
+    image: '/assets/upafrica_real.png',
+    links: [
+      { type: 'ios', url: 'https://testflight.apple.com/join/ZZg8A4NY' }
+    ]
   }
 ]
+const projects = [...baseProjects, ...baseProjects.map(p => ({ ...p, number: p.number + 'b' }))]
 
 const Particle = ({ delay, top, left, size }) => (
   <motion.div
@@ -111,9 +91,9 @@ export default function Projects() {
   const totalItems = projects.length
   const angleStep = 360 / totalItems
 
-  // Math: To fit 8 cards into a circle, giving them breathing room.
-  // We use radius = 420px which makes the circle robust and very visible
-  const radius = 420
+  // A tight radius forces the cards to overlap heavily on the sides
+  // creating the classic Cover Flow look but maintaining a true circular shape.
+  const radius = 280
 
   const wheelRotation = activeIndex * -angleStep
 
@@ -161,35 +141,43 @@ export default function Projects() {
           <div className="relative w-full h-full flex items-center justify-center" style={{ transformStyle: "preserve-3d" }}>
 
             <motion.div
-              className="relative w-full h-full flex items-center justify-center"
+              className="relative w-full h-full flex items-center justify-center pointer-events-none"
               style={{ transformStyle: "preserve-3d" }}
               animate={{ rotateY: wheelRotation }}
               transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
             >
               {projects.map((project, index) => {
-                const diff = Math.abs(index - activeIndex)
-                const shortestDistance = Math.min(diff, totalItems - diff)
-                const isActive = shortestDistance === 0
+                const diffAmt = index - activeIndex
+                // Calculate distance considering wrap around for 8 items
+                let diff = Math.abs(diffAmt)
+                if (diff > totalItems / 2) diff = totalItems - diff
+                const isActive = diff === 0
 
+                // Standard circular positioning
                 const angle = index * angleStep
 
-                // Opacity falls off slightly for depth but never goes below 0.3
-                // Making sure ALL cards in the circle are visible
-                const opacity = isActive ? 1 : Math.max(0.4, 1 - (shortestDistance * 0.2))
-                const brightness = isActive ? '100%' : `${90 - shortestDistance * 20}%`
+                // We want to ensure all items in the circle remain visible, but side items are smaller and darker
+                const scale = isActive ? 1 : Math.max(0.7, 1 - (diff * 0.1))
+                const opacity = isActive ? 1 : Math.max(0.4, 1 - (diff * 0.15))
+                const brightness = isActive ? '100%' : `${80 - diff * 15}%`
+                const zIndex = totalItems - diff
+
+                // Prevent physical 3D intersection: pull closer cards outwards
+                const zOffset = Math.max(0, 60 - (diff * 30))
 
                 return (
                   <div
-                    key={project.name}
+                    key={`${project.name}-${index}`}
                     onClick={() => setActiveIndex(index)}
-                    className={`absolute w-[260px] sm:w-[320px] h-[360px] sm:h-[440px] rounded-3xl overflow-hidden cursor-pointer bg-[#161616] ${isActive ? 'shadow-glass-lg' : 'shadow-lg hover:shadow-glass'}`}
+                    className={`absolute w-[280px] sm:w-[340px] h-[380px] sm:h-[480px] rounded-[32px] overflow-hidden cursor-pointer bg-[#161616] ${isActive ? 'shadow-2xl shadow-black/80 ring-1 ring-white/10' : 'shadow-lg hover:shadow-xl'} pointer-events-auto`}
                     style={{
                       transformOrigin: "center center",
-                      transform: `rotateY(${angle}deg) translateZ(${radius}px)`,
+                      transform: `rotateY(${angle}deg) translateZ(${radius + zOffset}px) scale(${scale})`,
                       transformStyle: "preserve-3d",
-                      transition: 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)',
+                      transition: 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
                       opacity: opacity,
-                      filter: `brightness(${brightness})`
+                      filter: `brightness(${brightness})`,
+                      zIndex: zIndex
                     }}
                   >
                     <div className="absolute inset-0 z-0">
@@ -207,7 +195,7 @@ export default function Projects() {
                       style={{ background: `radial-gradient(circle at 50% 0%, ${project.color}, transparent 80%)` }}
                     />
 
-                    <div className="absolute inset-0 z-20 p-6 flex flex-col justify-end text-center items-center">
+                    <div className="absolute inset-0 z-20 p-6 sm:p-8 flex flex-col justify-end text-left items-start">
                       <p className="font-sans font-semibold text-accent-copper text-[10px] sm:text-xs tracking-[0.2em] uppercase mb-1 drop-shadow-md">
                         {project.type}
                       </p>
@@ -218,21 +206,40 @@ export default function Projects() {
 
                       <div className="w-8 h-[1px] bg-white/30 mb-3" />
 
-                      <p className="text-[10px] sm:text-xs font-sans font-light text-white/90 leading-relaxed max-w-[90%] line-clamp-2 md:line-clamp-3 mb-4">
+                      <p className="text-[10px] sm:text-xs font-sans font-light text-white/90 leading-relaxed max-w-[90%] line-clamp-2 md:line-clamp-3 mb-6">
                         {project.description}
                       </p>
 
-                      <div className="flex gap-3 mt-auto mb-2">
-                        <button className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 border border-white/20 flex items-center justify-center hover:bg-accent-copper hover:border-accent-copper hover:text-dark transition-colors backdrop-blur-md">
-                          <span className="text-[12px] sm:text-[14px] leading-none mb-1">In</span>
-                        </button>
-                        <button className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 border border-white/20 flex items-center justify-center hover:bg-white/20 transition-colors backdrop-blur-md">
-                          <svg className="w-4 h-4 sm:w-5 sm:h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path d="M14 5l7 7m0 0l-7 7m7-7H3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                          </svg>
-                        </button>
+                      <div className="flex flex-wrap gap-2 sm:gap-3 relative z-50 pointer-events-auto w-full">
+                        {project.links ? (
+                          project.links.map((link, i) => (
+                            <a
+                              key={i}
+                              href={link.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={(e) => e.stopPropagation()}
+                              title={link.type}
+                              className="px-4 py-2 sm:px-5 sm:py-2.5 rounded-full bg-white/10 border border-white/20 flex items-center justify-center hover:bg-accent-copper hover:border-accent-copper hover:text-dark transition-colors backdrop-blur-md pointer-events-auto"
+                            >
+                              {link.type === 'android' && <span className="text-[10px] sm:text-[11px] font-semibold tracking-wide">Playstore</span>}
+                              {link.type === 'ios' && <span className="text-[10px] sm:text-[11px] font-semibold tracking-wide">AppStore</span>}
+                              {link.type === 'web' && <span className="text-[10px] sm:text-[11px] font-semibold tracking-wide">Site Web</span>}
+                            </a>
+                          ))
+                        ) : (
+                          <>
+                            <button className="px-4 py-2 sm:px-5 sm:py-2.5 rounded-full bg-white/10 border border-white/20 flex items-center justify-center hover:bg-accent-copper hover:border-accent-copper hover:text-dark transition-colors backdrop-blur-md">
+                              <span className="text-[10px] sm:text-[11px] font-semibold tracking-wide">En cours</span>
+                            </button>
+                          </>
+                        )}
                       </div>
                     </div>
+                    {/* Add an outer overlay that dynamically darkens non-active slides smoothly for the Cover Flow effect */}
+                    {!isActive && (
+                      <div className="absolute inset-0 bg-black/40 z-30 transition-opacity duration-700 pointer-events-none" />
+                    )}
                   </div>
                 )
               })}

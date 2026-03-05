@@ -6,10 +6,10 @@ export default function Footer() {
       <div className="flex flex-col md:flex-row items-center gap-4">
         <span>© {new Date().getFullYear()}</span>
         <span className="hidden md:block w-8 h-px bg-white/10" />
-        <span className="text-ink">Studio Arielle Noutais</span>
+        <span className="text-ink"> Arielle NOUTAIS</span>
       </div>
 
-      <div className="flex items-center gap-8 sm:gap-12">
+      {/* <div className="flex items-center gap-8 sm:gap-12">
         <a href="#" className="hover:text-ink transition-colors cursor-none relative group">
           Awwwards
           <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-accent-copper group-hover:w-full transition-all duration-300"></span>
@@ -22,7 +22,7 @@ export default function Footer() {
           Twitter
           <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-accent-copper group-hover:w-full transition-all duration-300"></span>
         </a>
-      </div>
+      </div> */}
     </footer>
   )
 }
