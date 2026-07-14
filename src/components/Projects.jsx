@@ -52,6 +52,26 @@ const baseProjects = [
     links: [
       { type: 'ios', url: 'https://testflight.apple.com/join/ZZg8A4NY' }
     ]
+  },
+  {
+    name: 'Permis Bénin',
+    type: 'Mobile App',
+    description: 'Application mobile d’entraînement et de préparation à l’examen du permis de conduire au Bénin.',
+    tags: ['Flutter', 'Quiz', 'Éducation'],
+    number: '05',
+    color: '#1E3A8A', // Deep Blue
+    image: '/assets/permisbenin_real.png',
+    links: []
+  },
+  {
+    name: 'CovoitElite',
+    type: 'Mobile App',
+    description: 'Application de mobilité et de livraison connectant les particuliers pour partager trajets et colis à moindre coût.',
+    tags: ['Flutter', 'Covoiturage', 'Livraison'],
+    number: '06',
+    color: '#5B21B6', // Royal Purple
+    image: '/assets/covoitelite_real.png',
+    links: []
   }
 ]
 const projects = [...baseProjects, ...baseProjects.map(p => ({ ...p, number: p.number + 'b' }))]
