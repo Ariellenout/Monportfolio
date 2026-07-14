@@ -111,9 +111,8 @@ export default function Projects() {
   const totalItems = projects.length
   const angleStep = 360 / totalItems
 
-  // A tight radius forces the cards to overlap heavily on the sides
-  // creating the classic Cover Flow look but maintaining a true circular shape.
-  const radius = 280
+  // A dynamic radius based on the number of projects to avoid 3D clipping/intersection.
+  const radius = Math.max(280, projects.length * 35)
 
   const wheelRotation = activeIndex * -angleStep
 
