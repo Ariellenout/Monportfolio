@@ -49,9 +49,9 @@ const baseProjects = [
     number: '04',
     color: '#8A7356', // Darker Gold
     image: '/assets/upafrica_real.png',
-    links: [
-      { type: 'ios', url: 'https://testflight.apple.com/join/ZZg8A4NY' }
-    ]
+    // links: [
+    //   { type: 'ios', url: 'https://testflight.apple.com/join/ZZg8A4NY' }
+    // ]
   },
   {
     name: 'Permis Bénin',
