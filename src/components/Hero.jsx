@@ -82,7 +82,7 @@ export default function Hero() {
             variants={item}
             className="text-[13px] font-bold tracking-[0.08em] uppercase text-accent-copper mb-4"
           >
-            Développeuse Mobile Freelance
+            Développeuse Web & Mobile Freelance
           </motion.span>
 
           <h1 className="font-sans font-extrabold text-[2.7rem] leading-[1.06] tracking-tight sm:text-6xl lg:text-[3.6rem]">
@@ -176,7 +176,7 @@ export default function Hero() {
                 of reading as a visible cut. */}
             <img
               src="/assets/arielle-hero.png"
-              alt="Arielle Noutais, développeuse mobile Flutter"
+              alt="Arielle Noutais, développeuse Web & Mobile"
               className="relative z-10 w-full h-auto object-contain"
               width={928}
               height={1152}
