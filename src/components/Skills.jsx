@@ -51,7 +51,7 @@ const skillsData = [
 
 export default function Skills() {
   return (
-    <section id="skills" className="relative py-24 sm:py-32 bg-dark overflow-hidden border-t border-ink/10 font-sans">
+    <section id="skills" className="relative py-24 sm:py-32 bg-dark overflow-hidden font-sans">
 
       {/* Background ambient stars/particles */}
       <div className="absolute inset-0 pointer-events-none opacity-50">
@@ -63,9 +63,10 @@ export default function Skills() {
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 sm:px-12 flex flex-col items-center">
 
-        <h2 className="text-3xl sm:text-5xl md:text-6xl font-serif font-light tracking-tighter text-ink-muted flex items-center gap-4 sm:gap-6 w-full sm:w-auto mb-16 sm:mb-24">
+        <h2 className="flex items-center gap-4 sm:gap-6 w-full sm:w-auto mb-16 sm:mb-24">
           <span className="w-8 sm:w-12 md:w-24 h-px bg-ink/20" />
-          Domaines <span className="italic text-ink ml-1 sm:ml-2">d'Expertise.</span>
+          <span className="text-3xl sm:text-5xl md:text-6xl font-sans font-semibold tracking-tight text-ink-muted">Domaines</span>
+          <span className="font-script text-4xl sm:text-6xl md:text-7xl text-accent-rust ml-1 sm:ml-2">d'Expertise.</span>
         </h2>
 
         <div className="relative w-full max-w-4xl mx-auto">

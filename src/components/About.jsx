@@ -15,7 +15,7 @@ export default function About() {
   }
 
   return (
-    <section id="about" className="relative min-h-[80vh] py-20 sm:py-32 flex flex-col justify-center border-t border-ink/10 mt-12 bg-dark font-sans selection:bg-accent-copper selection:text-dark">
+    <section id="about" className="relative min-h-[80vh] py-20 sm:py-32 flex flex-col justify-center bg-dark font-sans selection:bg-accent-copper selection:text-dark">
       <div className="w-full max-w-6xl mx-auto px-6 sm:px-12 grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-0" ref={ref}>
 
         {/* Left Column: Minimalist Title */}
@@ -28,9 +28,9 @@ export default function About() {
             <span className="font-sans text-[10px] sm:text-[11px] uppercase tracking-[0.3em] text-accent-copper mb-4 sm:mb-6 block border-l border-accent-copper pl-4 flex items-center h-4">
               La Philosophie
             </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-light text-ink leading-[1.2]">
-              Concevoir <br />
-              <span className="italic text-ink-muted">l'Évidence.</span>
+            <h2 className="leading-[1.15]">
+              <span className="block text-3xl sm:text-4xl md:text-5xl font-sans font-extrabold text-ink">Concevoir</span>
+              <span className="block font-script text-4xl sm:text-5xl md:text-6xl text-accent-rust mt-1">l'Évidence.</span>
             </h2>
           </motion.div>
 
@@ -59,12 +59,12 @@ export default function About() {
             </motion.p>
             <motion.p className="mb-6 flex flex-col gap-2" variants={textVariants}>
               <span>Spécialisée dans la conception d'applications natives avec :</span>
-              <span className="text-4xl sm:text-5xl lg:text-6xl text-accent-copper font-serif italic mt-1 drop-shadow-md">
+              <span className="text-5xl sm:text-6xl lg:text-7xl text-accent-copper font-script mt-1 drop-shadow-md">
                 Flutter.
               </span>
             </motion.p>
             <motion.p variants={textVariants} className="text-sm sm:text-base lg:text-lg">
-              Je forge des produits numériques qui ne se contentent pas d'être utilisés, mais qui sont profondément <span className="text-ink border-b border-accent-copper/40 pb-0.5 italic font-serif">ressentis</span>.
+              Je forge des produits numériques qui ne se contentent pas d'être utilisés, mais qui sont profondément <span className="text-accent-rust font-script text-xl sm:text-2xl">ressentis</span>.
             </motion.p>
           </motion.div>
 
@@ -83,7 +83,7 @@ export default function About() {
             ].map((stat, i) => (
               <div key={i} className={`flex flex-col py-6 sm:py-8 ${i % 2 === 0 ? 'border-r border-ink/10' : ''} md:border-r md:border-ink/10 ${i === 3 ? 'md:border-none' : ''} ${i < 2 ? 'border-b border-ink/10 md:border-b-0' : ''} px-4 items-center sm:items-start`}>
                 <span className="font-sans text-[9px] text-accent-copper/70 uppercase tracking-[0.3em] mb-3">{stat.label}</span>
-                <span className="font-serif text-2xl sm:text-3xl lg:text-4xl font-light text-ink italic">{stat.value}</span>
+                <span className="font-sans text-2xl sm:text-3xl lg:text-4xl font-extrabold text-accent-copper">{stat.value}</span>
               </div>
             ))}
           </motion.div>

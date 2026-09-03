@@ -72,9 +72,9 @@ export default function Navbar() {
 
           {/* Logo */}
           <a href="#hero" className="flex items-center gap-2 group z-50">
-            <span className="font-serif italic text-xl sm:text-2xl tracking-tighter text-ink group-hover:text-accent-copper transition-colors duration-500">
+            <span className="font-script text-2xl sm:text-3xl leading-none text-ink group-hover:text-accent-copper transition-colors duration-500">
               Arielle NOUTAIS
-              <span className="font-sans font-light not-italic text-accent-copper/80 text-sm ml-1">.</span>
+              <span className="font-sans font-light text-accent-copper/70 text-base ml-1">.</span>
             </span>
           </a>
 
@@ -84,7 +84,7 @@ export default function Navbar() {
               <a
                 key={link.name}
                 href={link.href}
-                className="font-sans text-[11px] lg:text-xs uppercase tracking-[0.25em] text-accent-copper/80 hover:text-accent-copper transition-all duration-300 relative group py-2"
+                className="font-sans text-xs lg:text-sm font-extrabold uppercase tracking-[0.12em] text-accent-copper hover:text-accent-rust transition-all duration-300 relative group py-2"
               >
                 {link.name}
                 <span className="absolute left-1/2 -translate-x-1/2 bottom-0 w-0 h-[1px] bg-accent-copper group-hover:w-full transition-all duration-500 easeExt" />
@@ -145,7 +145,7 @@ export default function Navbar() {
                     <span className="font-sans text-[10px] sm:text-xs text-accent-copper/60 uppercase tracking-widest mt-1">
                       0{i + 1}
                     </span>
-                    <span className="text-4xl sm:text-6xl font-serif font-light tracking-tight text-ink group-hover:text-transparent group-hover:italic transition-all duration-500" style={{ WebkitTextStroke: '1px rgba(18, 23, 21, 0.9)' }}>
+                    <span className="text-2xl sm:text-4xl font-sans font-semibold tracking-tight text-ink group-hover:text-accent-copper transition-colors duration-500">
                       {link.name}
                     </span>
                   </motion.a>
@@ -154,7 +154,7 @@ export default function Navbar() {
 
               <motion.div variants={linkVariants} className="mt-8 border-t border-ink/10 pt-8">
                 <span className="block font-sans text-[10px] uppercase tracking-[0.3em] text-ink/40 mb-4">Contact direct</span>
-                <a href="mailto:rosinenoutais@gmail.com" className="text-lg font-serif italic text-accent-copper underline decoration-accent-copper/30 underline-offset-4">
+                <a href="mailto:rosinenoutais@gmail.com" className="text-xl sm:text-2xl font-script text-accent-rust hover:text-accent-copper transition-colors duration-500">
                   rosinenoutais@gmail.com
                 </a>
               </motion.div>

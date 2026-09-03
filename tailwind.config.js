@@ -31,6 +31,7 @@ export default {
         mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
         sans: ['"Alan Sans"', 'system-ui', 'sans-serif'],
         serif: ['"Alan Sans"', 'system-ui', 'sans-serif'],
+        script: ['"Caveat"', 'cursive'],
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
