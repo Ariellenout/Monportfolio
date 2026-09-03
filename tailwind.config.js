@@ -8,42 +8,42 @@ export default {
     extend: {
       colors: {
         dark: {
-          DEFAULT: '#050505',
-          deep: '#000000',
-          surface: '#0a0a0a',
-          elevated: '#111111',
-          panel: 'rgba(5, 5, 5, 0.6)',
+          DEFAULT: '#FFFFFF',
+          deep: '#FFFFFF',
+          surface: '#F6F8F8',
+          elevated: '#EFF3F3',
+          panel: 'rgba(255, 255, 255, 0.6)',
         },
         accent: {
-          copper: '#C5A880', /* Champagne Gold */
-          copperLight: '#D4BFA0',
-          rust: '#8A7356', /* Darker Gold */
-          emerald: '#4A5D4E', /* Muted Sage */
-          emeraldLight: '#5E7362',
+          copper: '#438B9D', /* ABC Salles Teal-Green (brand accent) */
+          copperLight: '#6BAAB9',
+          rust: '#2C6575', /* Darker Teal-Green */
+          emerald: '#2F6B5E', /* Deeper Green (secondary) */
+          emeraldLight: '#4E8B78',
         },
         ink: {
-          DEFAULT: '#F5F5F7', /* Pearl White */
-          muted: '#A1A1AA',
-          subtle: '#71717A',
+          DEFAULT: '#121715', /* Near-Black (was Pearl White) */
+          muted: '#54605C',
+          subtle: '#7A8783',
         },
       },
       fontFamily: {
         mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        serif: ['"Playfair Display"', 'Georgia', 'serif'],
+        sans: ['"Alan Sans"', 'system-ui', 'sans-serif'],
+        serif: ['"Alan Sans"', 'system-ui', 'sans-serif'],
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-accent': 'linear-gradient(135deg, #C5A880 0%, #4A5D4E 100%)',
-        'gradient-mesh': 'radial-gradient(ellipse 80% 50% at 50% -20%, rgba(197, 168, 128, 0.12), transparent)',
+        'gradient-accent': 'linear-gradient(135deg, #438B9D 0%, #2F6B5E 100%)',
+        'gradient-mesh': 'radial-gradient(ellipse 80% 50% at 50% -20%, rgba(67, 139, 157, 0.12), transparent)',
         'noise': "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
       },
       boxShadow: {
-        'glass': '0 8px 32px rgba(0, 0, 0, 0.4)',
-        'glass-lg': '0 24px 48px rgba(0, 0, 0, 0.5)',
-        'inner-soft': 'inset 0 1px 0 0 rgba(245, 245, 247, 0.05)',
-        'copper-glow': '0 0 40px rgba(197, 168, 128, 0.2)',
-        'emerald-glow': '0 0 40px rgba(74, 93, 78, 0.15)',
+        'glass': '0 8px 32px rgba(18, 23, 21, 0.12)',
+        'glass-lg': '0 24px 48px rgba(18, 23, 21, 0.16)',
+        'inner-soft': 'inset 0 1px 0 0 rgba(18, 23, 21, 0.05)',
+        'copper-glow': '0 0 40px rgba(67, 139, 157, 0.25)',
+        'emerald-glow': '0 0 40px rgba(47, 107, 94, 0.2)',
       },
       backdropBlur: {
         'glass': '16px',

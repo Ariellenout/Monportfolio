@@ -1,16 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --color-copper: 197 168 128;
-  /* #C5A880 */
-  --color-emerald: 74 93 78;
-  /* #4A5D4E */
-  --bg-dark: #050505;
-  --bg-surface: #0a0a0a;
+  --color-copper: 67 139 157;
+  /* #438B9D */
+  --color-emerald: 47 107 94;
+  /* #2F6B5E */
+  --bg-dark: #FFFFFF;
+  --bg-surface: #F6F8F8;
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -62,8 +60,8 @@
 /* Glass panel */
 .glass-panel {
   @apply backdrop-blur-glass border border-ink/[0.04];
-  background: var(--tw-colors-dark-panel, rgba(28, 19, 15, 0.42));
-  box-shadow: 0 8px 32px rgba(28, 19, 15, 0.6), inset 0 1px 0 0 rgba(205, 201, 196, 0.04);
+  background: var(--tw-colors-dark-panel, rgba(255, 255, 255, 0.42));
+  box-shadow: 0 8px 32px rgba(18, 23, 21, 0.1), inset 0 1px 0 0 rgba(18, 23, 21, 0.04);
 }
 
 /* Typography clipping for reveal animations */
@@ -72,14 +70,14 @@
 }
 
 .text-stroke {
-  -webkit-text-stroke: 1px rgba(205, 201, 196, 0.3);
+  -webkit-text-stroke: 1px rgba(18, 23, 21, 0.3);
   color: transparent;
   transition: all 0.3s ease;
 }
 
 .text-stroke:hover {
-  -webkit-text-stroke: 1px rgba(173, 103, 31, 1);
-  color: rgba(173, 103, 31, 0.1);
+  -webkit-text-stroke: 1px rgba(67, 139, 157, 1);
+  color: rgba(67, 139, 157, 0.1);
 }
 
 @media screen and (max-width: 768px) {
@@ -107,7 +105,7 @@
 }
 
 ::selection {
-  background: rgba(173, 103, 31, 0.3);
+  background: rgba(67, 139, 157, 0.3);
   color: var(--bg-dark);
 }
 

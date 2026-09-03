@@ -38,7 +38,7 @@ export default function CustomCursor() {
             height: 32,
             width: 32,
             backgroundColor: 'transparent',
-            border: '1px solid rgba(205, 201, 196, 0.5)',
+            border: '1px solid rgba(18, 23, 21, 0.4)',
             mixBlendMode: 'normal',
             transition: { type: 'spring', mass: 0.1, stiffness: 200, damping: 20 }
         },
@@ -47,7 +47,7 @@ export default function CustomCursor() {
             y: mousePosition.y - 40,
             height: 80,
             width: 80,
-            backgroundColor: 'rgba(205, 201, 196, 1)',
+            backgroundColor: 'rgba(18, 23, 21, 1)',
             border: 'none',
             mixBlendMode: 'difference',
             transition: { type: 'spring', mass: 0.1, stiffness: 200, damping: 20 }

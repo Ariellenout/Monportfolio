@@ -10,7 +10,7 @@ const baseProjects = [
     description: 'Solution de paiement par QR code transparente & sans friction.',
     tags: ['Flutter', 'Mobile', 'UI/UX'],
     number: '01',
-    color: '#C5A880', // Champagne Gold
+    color: '#438B9D', // Teal Accent
     image: '/assets/qrpaye_real.png',
     links: [
       { type: 'android', url: 'https://play.google.com/store/apps/details?id=dev.sicoges.qr_manager&pcampaignid=web_share' },
@@ -47,7 +47,7 @@ const baseProjects = [
     description: 'Connecter et réunir au travers d’une esthétique moderne.',
     tags: ['UI/UX', 'Mobile'],
     number: '04',
-    color: '#8A7356', // Darker Gold
+    color: '#6BAAB9', // Light Teal
     image: '/assets/upafrica_real.png',
     // links: [
     //   { type: 'ios', url: 'https://testflight.apple.com/join/ZZg8A4NY' }
@@ -117,7 +117,7 @@ export default function Projects() {
   const wheelRotation = activeIndex * -angleStep
 
   return (
-    <section id="projects" className="relative min-h-screen bg-[#111111] flex flex-col justify-center overflow-hidden py-12 sm:py-24 border-t border-white/5">
+    <section id="projects" className="relative min-h-screen bg-dark flex flex-col justify-center overflow-hidden py-12 sm:py-24 border-t border-ink/10">
 
       <div className="absolute inset-0 pointer-events-none z-0">
         {particles.map(p => (
@@ -133,7 +133,7 @@ export default function Projects() {
         className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-12 mb-8 text-center sm:text-left flex flex-col items-center sm:items-start"
       >
         <h2 className="text-3xl sm:text-5xl md:text-6xl font-serif font-light tracking-tighter text-ink-muted flex items-center gap-4 sm:gap-6">
-          <span className="w-8 sm:w-12 md:w-24 h-px bg-white/20" />
+          <span className="w-8 sm:w-12 md:w-24 h-px bg-ink/20" />
           Galerie <span className="italic text-ink ml-1 sm:ml-2">d'Œuvres.</span>
         </h2>
       </motion.div>
@@ -151,9 +151,9 @@ export default function Projects() {
 
           <button
             onClick={handlePrev}
-            className="absolute left-4 sm:left-12 z-40 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white/[0.03] border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-white/20 transition-all backdrop-blur-md cursor-pointer group"
+            className="absolute left-4 sm:left-12 z-40 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-ink/[0.04] border border-ink/10 flex items-center justify-center hover:bg-ink/10 hover:border-ink/20 transition-all backdrop-blur-md cursor-pointer group"
           >
-            <span className="w-3 h-3 border-t-2 border-l-2 border-white/50 group-hover:border-white transition-colors -rotate-45 ml-1"></span>
+            <span className="w-3 h-3 border-t-2 border-l-2 border-ink/50 group-hover:border-ink transition-colors -rotate-45 ml-1"></span>
           </button>
 
           {/* The Wrapper for the 3D scene */}
@@ -267,9 +267,9 @@ export default function Projects() {
 
           <button
             onClick={handleNext}
-            className="absolute right-4 sm:right-12 z-40 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white/[0.03] border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-white/20 transition-all backdrop-blur-md cursor-pointer group"
+            className="absolute right-4 sm:right-12 z-40 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-ink/[0.04] border border-ink/10 flex items-center justify-center hover:bg-ink/10 hover:border-ink/20 transition-all backdrop-blur-md cursor-pointer group"
           >
-            <span className="w-3 h-3 border-t-2 border-r-2 border-white/50 group-hover:border-white transition-colors rotate-45 mr-1"></span>
+            <span className="w-3 h-3 border-t-2 border-r-2 border-ink/50 group-hover:border-ink transition-colors rotate-45 mr-1"></span>
           </button>
 
         </div>
@@ -281,7 +281,7 @@ export default function Projects() {
               onClick={() => setActiveIndex(idx)}
               className={`h-2 rounded-full transition-all duration-500 ease-in-out ${activeIndex === idx
                 ? 'w-8 bg-accent-copper'
-                : 'w-2 bg-white/20 hover:bg-white/40'
+                : 'w-2 bg-ink/20 hover:bg-ink/40'
                 }`}
             />
           ))}

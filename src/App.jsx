@@ -55,7 +55,7 @@ function App() {
             </motion.div>
 
             <motion.div
-              className="w-32 h-px bg-white/5 mt-8 relative overflow-hidden"
+              className="w-32 h-px bg-ink/10 mt-8 relative overflow-hidden"
             >
               <motion.div
                 className="absolute inset-y-0 left-0 bg-accent-copper"

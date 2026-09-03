@@ -51,27 +51,27 @@ const skillsData = [
 
 export default function Skills() {
   return (
-    <section id="skills" className="relative py-24 sm:py-32 bg-dark overflow-hidden border-t border-white/5 font-sans">
+    <section id="skills" className="relative py-24 sm:py-32 bg-dark overflow-hidden border-t border-ink/10 font-sans">
 
       {/* Background ambient stars/particles */}
       <div className="absolute inset-0 pointer-events-none opacity-50">
-        <div className="absolute top-[20%] left-[10%] w-1 h-1 bg-[#C5A880] rounded-full blur-[1px]" />
-        <div className="absolute top-[40%] right-[20%] w-1.5 h-1.5 bg-[#C5A880] rounded-full blur-[2px] opacity-40" />
-        <div className="absolute top-[70%] left-[30%] w-1 h-1 bg-[#C5A880] rounded-full" />
-        <div className="absolute top-[80%] right-[15%] w-2 h-2 bg-[#C5A880] rounded-full blur-[2px] opacity-20" />
+        <div className="absolute top-[20%] left-[10%] w-1 h-1 bg-[#438B9D] rounded-full blur-[1px]" />
+        <div className="absolute top-[40%] right-[20%] w-1.5 h-1.5 bg-[#438B9D] rounded-full blur-[2px] opacity-40" />
+        <div className="absolute top-[70%] left-[30%] w-1 h-1 bg-[#438B9D] rounded-full" />
+        <div className="absolute top-[80%] right-[15%] w-2 h-2 bg-[#438B9D] rounded-full blur-[2px] opacity-20" />
       </div>
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 sm:px-12 flex flex-col items-center">
 
         <h2 className="text-3xl sm:text-5xl md:text-6xl font-serif font-light tracking-tighter text-ink-muted flex items-center gap-4 sm:gap-6 w-full sm:w-auto mb-16 sm:mb-24">
-          <span className="w-8 sm:w-12 md:w-24 h-px bg-white/20" />
+          <span className="w-8 sm:w-12 md:w-24 h-px bg-ink/20" />
           Domaines <span className="italic text-ink ml-1 sm:ml-2">d'Expertise.</span>
         </h2>
 
         <div className="relative w-full max-w-4xl mx-auto">
 
           {/* The Central Vertical Timeline Line (Desktop: Center, Mobile: Left) */}
-          <div className="absolute left-[38px] sm:left-1/2 top-0 bottom-0 w-[1px] bg-gradient-to-b from-transparent via-[#C5A880]/50 to-transparent sm:-translate-x-1/2 z-0" />
+          <div className="absolute left-[38px] sm:left-1/2 top-0 bottom-0 w-[1px] bg-gradient-to-b from-transparent via-[#438B9D]/50 to-transparent sm:-translate-x-1/2 z-0" />
 
           <div className="flex flex-col gap-12 sm:gap-0">
             {skillsData.map((skill, index) => {
@@ -97,9 +97,9 @@ export default function Skills() {
                   {/* On mobile: left margin to avoid the line. On desktop: width 45%, flex end/start depending on side */}
                   <div className={`w-full sm:w-[45%] pl-[80px] sm:pl-0 relative z-20 flex ${isLeft ? 'sm:justify-end sm:pr-12' : 'sm:justify-start sm:pl-12'}`}>
 
-                    <div className="relative w-full max-w-md bg-[#161616] border border-white/5 rounded-2xl p-6 sm:p-8 hover:-translate-y-1 transition-transform duration-300">
+                    <div className="relative w-full max-w-md bg-dark-surface border border-ink/10 rounded-2xl p-6 sm:p-8 hover:-translate-y-1 transition-transform duration-300 shadow-glass">
                       {/* Custom app color ambient glow behind the card */}
-                      <div className="absolute inset-0 bg-[#C5A880] opacity-[0.03] blur-[40px] rounded-2xl -z-10 pointer-events-none" />
+                      <div className="absolute inset-0 bg-[#438B9D] opacity-[0.04] blur-[40px] rounded-2xl -z-10 pointer-events-none" />
 
                       <h3 className="text-lg sm:text-xl font-bold text-accent-copper tracking-wide mb-3">{skill.title}</h3>
                       <p className="text-sm sm:text-base text-ink-muted font-light leading-relaxed">
@@ -108,7 +108,7 @@ export default function Skills() {
                     </div>
 
                     {/* Horizontal Connector Line (Desktop Only) */}
-                    <div className={`hidden sm:block absolute top-1/2 -translate-y-1/2 h-[1px] w-12 bg-gradient-to-${isLeft ? 'l' : 'r'} from-[#C5A880]/60 to-transparent ${isLeft ? 'right-0' : 'left-0'}`} />
+                    <div className={`hidden sm:block absolute top-1/2 -translate-y-1/2 h-[1px] w-12 bg-gradient-to-${isLeft ? 'l' : 'r'} from-[#438B9D]/60 to-transparent ${isLeft ? 'right-0' : 'left-0'}`} />
                   </div>
 
                   {/* THE TIMELINE NODE (Icon in Circle) */}
@@ -117,16 +117,16 @@ export default function Skills() {
                     {/* The glowing orb */}
                     <div className="relative w-10 h-10 sm:w-14 sm:h-14">
                       {/* Heavy background glow */}
-                      <div className="absolute inset-0 rounded-full bg-[#C5A880] blur-md opacity-50 animate-pulse" />
+                      <div className="absolute inset-0 rounded-full bg-[#438B9D] blur-md opacity-50 animate-pulse" />
 
                       {/* The solid circle */}
-                      <div className="relative w-full h-full rounded-full bg-gradient-to-br from-[#C5A880] to-[#E2C79F] shadow-inner flex items-center justify-center text-[#111111] border-[1px] border-white/30">
+                      <div className="relative w-full h-full rounded-full bg-gradient-to-br from-[#438B9D] to-[#6BAAB9] shadow-inner flex items-center justify-center text-white border-[1px] border-white/30">
                         {skill.icon}
                       </div>
                     </div>
 
                     {/* Horizontal Connector Line (Mobile Only - connects node to card) */}
-                    <div className="block sm:hidden absolute left-full top-1/2 -translate-y-1/2 h-[1px] w-6 bg-gradient-to-r from-[#C5A880]/80 to-transparent" />
+                    <div className="block sm:hidden absolute left-full top-1/2 -translate-y-1/2 h-[1px] w-6 bg-gradient-to-r from-[#438B9D]/80 to-transparent" />
 
                   </div>
 
